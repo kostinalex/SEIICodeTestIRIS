@@ -3,10 +3,16 @@
 <div *ngIf="!loading">
   <table>
     <tr>
-      <th>Some data</th>
+      <th>Name</th>
     </tr>
-    <tr *ngFor="let sub of subdivisions">
-      <td>Test</td>
+    <tr
+      *ngFor="
+        let sub of subdivisions
+          | paginate : { itemsPerPage: 10, currentPage: page }
+      "
+    >
+      <td>{{ sub.name }}</td>
     </tr>
   </table>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 </div>

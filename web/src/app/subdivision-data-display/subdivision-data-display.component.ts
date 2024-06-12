@@ -8,6 +8,7 @@ import { environment } from "src/environments/environment";
   styleUrls: ["./subdivision-data-display.component.css"],
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
+  page = 1;
   loading = true;
   subdivisions: Array<any> = [];
 
@@ -24,5 +25,9 @@ export class SubdivisionDataDisplayComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  pageChanged(event) {
+    this.page = event;
   }
 }
