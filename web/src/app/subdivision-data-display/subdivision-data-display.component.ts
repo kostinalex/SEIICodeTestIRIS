@@ -8,12 +8,21 @@ import { environment } from "src/environments/environment";
   styleUrls: ["./subdivision-data-display.component.css"],
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
+  loading = true;
+  subdivisions: Array<any> = [];
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    console.log("====>home");
-    this.http.get(environment.api + "/v1/subdivisions").subscribe((resp) => {
-      console.log("====>resp", resp);
-    });
+    this.loading = true;
+    this.http.get(environment.api + "/v1/subdivisions").subscribe(
+      (resp) => {
+        this.subdivisions = resp["subdivisions"];
+        this.loading = false;
+      },
+      (error) => {
+        this.loading = false;
+      }
+    );
   }
 }
