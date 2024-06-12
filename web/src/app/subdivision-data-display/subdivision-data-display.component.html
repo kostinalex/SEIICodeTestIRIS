@@ -1,6 +1,14 @@
 <div *ngIf="loading" class="centerDiv">Loading...</div>
 
 <div *ngIf="!loading" class="wrapper">
+  <div>
+    <select (change)="applyFilter($event)">
+      <option>All</option>
+      <option>Active</option>
+      <option>Future</option>
+      <option>Builtout</option>
+    </select>
+  </div>
   <table>
     <tr>
       <th (click)="sort('name')">Name</th>

@@ -38,6 +38,17 @@ export class SubdivisionDataDisplayComponent implements OnInit {
     );
   }
 
+  applyFilter(event) {
+    this.page = 1;
+    this.subdivisions = JSON.parse(JSON.stringify(this.subdivisionsCopy));
+
+    if (event.target.value != "All") {
+      this.subdivisions = this.subdivisions.filter(
+        (c) => c.subdivisionStatusCode == event.target.value
+      );
+    }
+  }
+
   pageChanged(event) {
     this.page = event;
   }
