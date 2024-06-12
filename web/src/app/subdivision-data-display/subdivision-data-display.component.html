@@ -3,11 +3,11 @@
 <div *ngIf="!loading" class="wrapper">
   <table>
     <tr>
-      <th>Name</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>subdivisionStatusCode</th>
-      <th>nearMapImageDate</th>
+      <th (click)="sort('name')">Name</th>
+      <th (click)="sort('longitude')">longitude</th>
+      <th (click)="sort('latitude')">latitude</th>
+      <th (click)="sort('subdivisionStatusCode')">subdivisionStatusCode</th>
+      <th (click)="sort('nearMapImageDate')">nearMapImageDate</th>
     </tr>
     <tr
       *ngFor="

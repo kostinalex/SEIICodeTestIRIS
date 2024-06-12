@@ -11,6 +11,8 @@ export class SubdivisionDataDisplayComponent implements OnInit {
   page = 1;
   loading = true;
   subdivisions: Array<any> = [];
+  subdivisionsCopy: Array<any> = [];
+  toggler = 1;
 
   constructor(private http: HttpClient) {}
 
@@ -19,11 +21,20 @@ export class SubdivisionDataDisplayComponent implements OnInit {
     this.http.get(environment.api + "/v1/subdivisions").subscribe(
       (resp) => {
         this.subdivisions = resp["subdivisions"];
+        this.subdivisionsCopy = JSON.parse(JSON.stringify(this.subdivisions));
         this.loading = false;
       },
       (error) => {
         this.loading = false;
       }
+    );
+  }
+
+  sort(property) {
+    this.subdivisions = JSON.parse(JSON.stringify(this.subdivisionsCopy));
+    this.toggler = -this.toggler;
+    this.subdivisions = this.subdivisions.sort((a, b) =>
+      a[property] > b[property] ? this.toggler : -this.toggler
     );
   }
 
