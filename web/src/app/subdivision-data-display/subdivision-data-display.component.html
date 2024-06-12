@@ -1,9 +1,13 @@
 <div *ngIf="loading" class="centerDiv">Loading...</div>
 
-<div *ngIf="!loading">
+<div *ngIf="!loading" class="wrapper">
   <table>
     <tr>
       <th>Name</th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>subdivisionStatusCode</th>
+      <th>nearMapImageDate</th>
     </tr>
     <tr
       *ngFor="
@@ -12,6 +16,10 @@
       "
     >
       <td>{{ sub.name }}</td>
+      <td>{{ sub.longitude }}</td>
+      <td>{{ sub.latitude }}</td>
+      <td>{{ sub.subdivisionStatusCode }}</td>
+      <td>{{ sub.nearMapImageDate }}</td>
     </tr>
   </table>
   <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
