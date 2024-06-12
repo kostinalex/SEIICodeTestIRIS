@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { SubdivisionDataDisplayComponent } from "./subdivision-data-display/subdivision-data-display.component";
 import { HttpClientModule } from "@angular/common/http";
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from "@angular/common/http";
   ],
   imports: [
     HttpClientModule,
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
