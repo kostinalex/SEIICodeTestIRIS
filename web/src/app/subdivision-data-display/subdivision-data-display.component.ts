@@ -52,4 +52,5 @@ export class SubdivisionDataDisplayComponent implements OnInit {
   pageChanged(event) {
     this.page = event;
   }
+  //
 }
